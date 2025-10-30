@@ -1,0 +1,49 @@
+# makes a table for my final project
+# table 1 = summary stats for main variables
+
+suppressPackageStartupMessages({
+  library(tidyverse)
+  library(janitor)
+})
+source("code/utils.R")
+source("code/01_load_and_clean.R")  # loads dat
+
+# summary of variables
+vars_we_want <- c(
+  guess_ai_col(names(dat)),
+  guess_recovery_col(names(dat)),
+  "patient_satisfaction",
+  "age"
+)
+
+vars_we_want <- vars_we_want[!is.na(vars_we_want)]
+vars_we_want <- vars_we_want[vars_we_want %in% names(dat)]
+
+if (length(vars_we_want) == 0) {
+  table1 <- tibble(
+    variable = character(),
+    n = integer(),
+    mean = numeric(),
+    sd = numeric(),
+    min = numeric(),
+    max = numeric()
+  )
+} else {
+  table1 <- dat %>%
+    select(all_of(vars_we_want)) %>%
+    pivot_longer(everything(), names_to = "variable", values_to = "value") %>%
+    mutate(value = suppressWarnings(as.numeric(value))) %>%
+    group_by(variable) %>%
+    summarise(
+      n = sum(!is.na(value)),
+      mean = mean(value, na.rm = TRUE),
+      sd = sd(value, na.rm = TRUE),
+      min = min(value, na.rm = TRUE),
+      max = max(value, na.rm = TRUE),
+      .groups = "drop"
+    )
+}
+
+if (!dir.exists("tables")) dir.create("tables", recursive = TRUE)
+readr::write_csv(table1, "tables/table1_summary.csv")
+

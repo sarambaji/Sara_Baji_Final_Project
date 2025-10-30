@@ -1,0 +1,64 @@
+---
+title: "Final Report"
+author: "Sara Baji"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+# Introduction
+
+This project uses the AI in Healthcare dataset which contains 5,000 patient records with 20 variables capturing demographic, clinical, and AI-related information.   
+The purpose is to explore whether the AI model’s confidence relates to recovery time and satisfaction. I use summary statistics and a simple scatterplot to 
+look for any clear patterns.
+
+# Data
+```{r setup, include=FALSE}
+
+library(tidyverse)
+library(janitor)
+library(knitr)
+
+source("code/utils.R")
+source("code/01_load_and_clean.R")
+
+```
+
+```{r}
+dim(dat)
+head(dat)
+```
+
+# Table
+```{r table1, message=FALSE, warning=FALSE}
+# make sure the table exists
+source("code/02_make_table1.R")
+
+# read and display table 1
+tab_path <- "tables/table1_summary.csv"
+if (file.exists(tab_path)) {
+  tab1 <- readr::read_csv(tab_path, show_col_types = FALSE)
+  tab1
+} else {
+stop("table not found at: ", tab_path)
+}
+```
+
+
+# Figure
+```{r figure1, message=FALSE, warning=FALSE, echo=FALSE}
+# make sure the figure exists
+source("code/03_make_fig1.R")
+
+# include the figure
+fig_path <- "figs/fig_ai_vs_recovery.png"
+if (file.exists(fig_path)) {
+  knitr::include_graphics(fig_path)
+} else {
+  stop("figure not found at: ", fig_path)
+}
+```
+
+Notes
+From the figure, I am checking whether higher AI confidence is linked to
+shorter recovery time. This is only a descriptive analysis, so it does not
+prove causation.

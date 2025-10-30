@@ -1,0 +1,4 @@
+source("code/utils.R")               # should load the helper functions
+source("code/01_load_and_clean.R")   # should load the data into 'dat'
+ls()                                 # should include 'dat'
+guess_ai_col(names(dat)) 

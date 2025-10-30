@@ -1,0 +1,10 @@
+---
+title: "Final Project 4"
+author: "Sara Baji"
+date: "2025-10-29"
+output: github_document
+---
+
+```{r setup, include=TRUE}
+# This repository includes a dataset titled “AI in Healthcare”, which contains 5,000 patient records with 20 variables capturing demographic, clinical, and AI-related information. The dataset includes patient characteristics (age, gender, family history), clinical measures (blood pressure, heart rate, lab test results, x-ray findings, diagnosis, surgery type, recovery time), and contextual factors (hospital name, insurance type, allergies, and patient satisfaction). It also includes an AI_Diagnosis_Confidence score, which reflects how confident the AI model is in its diagnostic prediction.It also includes an analysis of how AI confidence relates to traditional patient outcomes (e.g., recovery time, treatment duration, patient satisfaction, etc). Includes are 
+```
