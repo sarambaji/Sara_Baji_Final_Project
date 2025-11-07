@@ -10,3 +10,8 @@ clean:
 	rm -f final_report.html
 	rm -f tables/table1_summary.csv
 	rm -f figs/fig_ai_vs_recovery.png
+
+# install rule
+install:
+	Rscript -e "if (!requireNamespace('renv', quietly = TRUE)) install.packages('renv')"
+	Rscript -e "renv::restore()"

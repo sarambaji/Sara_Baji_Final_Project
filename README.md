@@ -65,3 +65,17 @@ You’ll need R (≥ 4.0) and the following R packages:
 - janitor  
 - knitr  
 - rmarkdown
+
+## Reproducing the Environment
+
+This project uses the `renv` package to ensure a reproducible R environment.
+
+To install all required packages, run:
+
+```bash
+make install
+```
+
+This will:  
+- Install renv (if not already installed)  
+- Restore the package versions recorded in renv.lock
