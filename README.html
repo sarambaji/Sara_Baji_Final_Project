@@ -422,6 +422,16 @@ of the analysis.</p>
 <li>rmarkdown</li>
 </ul>
 </div>
+<div id="reproducing-the-environment" class="section level2">
+<h2>Reproducing the Environment</h2>
+<p>This project uses the <code>renv</code> package to ensure a
+reproducible R environment.</p>
+<p>To install all required packages, run:</p>
+<pre class="bash"><code>make install</code></pre>
+<p>This will:<br />
+- Install renv (if not already installed)<br />
+- Restore the package versions recorded in renv.lock</p>
+</div>
 </div>
 
 
