@@ -18,6 +18,10 @@ ai_healthcare_project/
 │ └── table1_summary.csv # generated summary table
 ├── figs/
 │ └── fig_ai_vs_recovery.png # generated figure
+├── renv/
+│   ├── activate.R               # activates reproducible package environment
+│   ├── .gitignore               # ignores local package library
+├── renv.lock                    # lockfile capturing package versions
 ├── final_report.Rmd # main R Markdown report
 ├── final_report.html # knitted HTML report
 ├── Makefile # automates report generation
