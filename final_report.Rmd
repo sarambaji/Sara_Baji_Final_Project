@@ -23,26 +23,29 @@ source("code/01_load_and_clean.R")
 
 ```
 
-```{r}
-dim(dat)
-head(dat)
+```{r data_overview, echo=FALSE, results='asis'}
+# Show dataset shape as text
+cat("**Number of rows:**", nrow(dat), "<br>")
+cat("**Number of columns:**", ncol(dat), "<br><br>")
+
+# Display first few rows nicely
+knitr::kable(head(dat), caption = "Preview of the AI in Healthcare Dataset")
 ```
 
 # Table
-```{r table1, message=FALSE, warning=FALSE}
+```{r table1, message=FALSE, warning=FALSE, echo=FALSE}
 # make sure the table exists
 source("code/02_make_table1.R")
 
-# read and display table 1
+# read and display table 1 nicely
 tab_path <- "tables/table1_summary.csv"
 if (file.exists(tab_path)) {
   tab1 <- readr::read_csv(tab_path, show_col_types = FALSE)
-  tab1
+  knitr::kable(tab1, caption = "Summary statistics")
 } else {
-stop("table not found at: ", tab_path)
+  stop("table not found at: ", tab_path)
 }
 ```
-
 
 # Figure
 ```{r figure1, message=FALSE, warning=FALSE, echo=FALSE}
@@ -58,7 +61,6 @@ if (file.exists(fig_path)) {
 }
 ```
 
-Notes
-From the figure, I am checking whether higher AI confidence is linked to
+*Note:* I am checking whether higher AI confidence is linked to
 shorter recovery time. This is only a descriptive analysis, so it does not
 prove causation.

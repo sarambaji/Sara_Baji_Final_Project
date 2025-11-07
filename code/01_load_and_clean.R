@@ -11,6 +11,9 @@ dat <- readr::read_csv("data/AI_in_HealthCare_Dataset.csv", show_col_types = FAL
 # clean column names
 dat <- dat %>% clean_names()
 
+# remove irrelevant column
+dat <- dat %>% select(-data_origin)
+
 # find main columns
 ai_col <- guess_ai_col(names(dat))
 recovery_col <- guess_recovery_col(names(dat))

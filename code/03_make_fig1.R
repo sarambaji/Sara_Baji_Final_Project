@@ -29,9 +29,9 @@ if (is.na(ai_col) || is.na(recovery_col)) {
     geom_point(alpha = 0.6) +
     geom_smooth(method = "lm", se = TRUE) +
     labs(
-      title = "AI diagnosis confidence vs recovery time",
-      x = "AI diagnosis confidence",
-      y = "Recovery time (days)"
+      title = "AI Diagnosis Confidence vs Recovery Time",
+      x = "AI Diagnosis Confidence",
+      y = "Recovery Time (days)"
     ) +
     theme_minimal()
   
