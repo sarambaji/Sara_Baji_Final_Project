@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+# Sara-Baji-Final-Project-4
+=======
 # AI in Healthcare Project
 
 This repository contains the code and report for my **AI in Healthcare** analysis. The goal of the project is to explore whether the AI model’s diagnostic confidence is related to patient recovery time and satisfaction using a dataset of 5,000 patients.
@@ -18,10 +21,6 @@ ai_healthcare_project/
 │ └── table1_summary.csv # generated summary table
 ├── figs/
 │ └── fig_ai_vs_recovery.png # generated figure
-├── renv/
-│   ├── activate.R               # activates reproducible package environment
-│   ├── .gitignore               # ignores local package library
-├── renv.lock                    # lockfile capturing package versions
 ├── final_report.Rmd # main R Markdown report
 ├── final_report.html # knitted HTML report
 ├── Makefile # automates report generation
@@ -69,39 +68,4 @@ You’ll need R (≥ 4.0) and the following R packages:
 - janitor  
 - knitr  
 - rmarkdown
-
-## Reproducing the Environment
-
-This project uses the `renv` package to ensure a reproducible R environment.
-
-To install all required packages, run:
-
-```bash
-make install
-```
-
-This will:  
-- Install renv (if not already installed)  
-- Restore the package versions recorded in renv.lock
-
-## Build the Report Using Docker
-
-To build the Docker image locally:
-
-```bash
-docker build -t sarambaji/ai-healthcare-report .
-```
-
-DockerHub image:  
-https://hub.docker.com/r/sarambaji/ai-healthcare-report
-
-To run the automated containerized workflow and output the final report to `report/final_report.html`:
-
-```bash
-make docker-report
-```
-This will:  
-- create a folder named `report/`  
-- run the container  
-- build `final_report.html` inside the container  
-- copy it into your local `report/` folder  
+>>>>>>> 4726821 (Initial commit - AI in Healthcare final project)
